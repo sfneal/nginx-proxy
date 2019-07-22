@@ -1,10 +1,13 @@
 FROM nginx:1.17-alpine
 
+# Domain environment variable (domain:service)
+ENV domain=example.com:app
+ENV validation_domain=validation.example.com
+
 # Update OS then install openssl, curl
 RUN apk update && apk add \
     bash \
     curl \
-    openssl \
     python3
 
 # Install replace_domain & awsutils-s3
