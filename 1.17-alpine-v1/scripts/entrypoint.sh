@@ -5,6 +5,15 @@ replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/nginx.conf \
     --placeholder '@VALIDATION_DOMAIN'
 
+# Enable nginx configurations for each site
+for d in ${domain}; do
+    # Split the "domain:webserver" string
+    url_server=(${d//:/ })
+
+    # Run enable-conf.sh
+    sh /scripts/enable-servers.sh ${url_server[0]} ${url_server[1]}
+done
+
 # Test nginx service
 nginx -t
 
