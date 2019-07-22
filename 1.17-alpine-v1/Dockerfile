@@ -18,8 +18,8 @@ RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-ngi
     && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
 
 # Copy nginx configuration files & delete default
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Copy scripts
 COPY ./scripts/ /scripts/
