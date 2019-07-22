@@ -17,8 +17,9 @@ RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.5 awsutils-s3
 RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
     && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
 
-# Copy nginx configuration files
+# Copy nginx configuration files & delete default
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy scripts
 COPY ./scripts/ /scripts/

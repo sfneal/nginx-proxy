@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Test nginx service
+nginx -t
+sleep 10
+
 # Replace @VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/nginx.conf \
@@ -13,11 +17,6 @@ for d in ${domain}; do
     # Run enable-conf.sh
     sh /scripts/enable-servers.sh ${url_server[0]} ${url_server[1]}
 done
-
-# Test nginx service
-nginx -t
-
-sleep 10
 
 # Start Nginx service
 nginx -t
