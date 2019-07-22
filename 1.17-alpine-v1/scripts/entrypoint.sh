@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-sleep 30
+# Test nginx service
+nginx -t
+
+sleep 10
 
 # Start Nginx service
 nginx -t
