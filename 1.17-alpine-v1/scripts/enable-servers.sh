@@ -7,7 +7,7 @@ server_current=${2}
 echo "## Enabling nginx .conf for ${domain_current}..."
 
 # Copy nginx config template
-cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
+cp /sites/template.conf /etc/nginx/conf.d/${domain_current}.conf
 
 # Replace @VALIDATION_DOMAIN placeholder in {domain}.conf with validation domain
 replace_domain --domain ${domain_current} \
