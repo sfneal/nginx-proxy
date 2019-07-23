@@ -15,7 +15,7 @@ for d in ${domain}; do
     url_server=(${d//:/ })
 
     # Run enable-conf.sh
-    sh /scripts/enable-servers.sh ${url_server[0]} ${url_server[1]}
+    sh /scripts/actions/enable-servers.sh ${url_server[0]} ${url_server[1]}
 done
 
 # Start Nginx service
