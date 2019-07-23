@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-for env in printenv; do
-    echo ${env}
-done
-
 # Test nginx service
 nginx -t
 sleep 10
