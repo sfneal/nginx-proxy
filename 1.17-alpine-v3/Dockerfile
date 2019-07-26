@@ -27,7 +27,7 @@ COPY --from=base /etc/nginx/ /etc/nginx/
 
 # Copy nginx configuration files & delete default
 RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/ /etc/nginx/
 
 # Copy scripts
 COPY ./scripts/ /scripts/
