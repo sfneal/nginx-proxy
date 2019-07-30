@@ -2,7 +2,7 @@
 
 # Test nginx service
 nginx -t
-sleep 10
+sleep 20
 
 # Replace @VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
