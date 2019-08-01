@@ -2,7 +2,6 @@
 
 # Test nginx service
 nginx -t
-sleep 35
 
 # Replace @VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
@@ -22,14 +21,9 @@ done
 for d in ${domain}; do
     # Split the "domain:webserver" string
     url_server=(${d//:/ })
+    domain=${url_server[0]}
 
-    wait_for_file=/etc/letsencrypt/renewal/${url_server[0]}.conf
-    until [[ -f ${wait_for_file} ]]
-    do
-        echo "File NOT found " ${wait_for_file}
-         sleep 3
-    done
-    echo "File found " ${wait_for_file}
+    sh /scripts/actions/wait-for-file.sh ${domain}
 done
 
 # Start Nginx service
