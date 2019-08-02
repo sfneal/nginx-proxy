@@ -9,7 +9,7 @@ else
     until [[ -f ${wait_for_file} ]]
     do
         echo "File NOT found " ${wait_for_file}
-         sleep 3
+        sleep 3
     done
     echo "File found " ${wait_for_file}
 fi
