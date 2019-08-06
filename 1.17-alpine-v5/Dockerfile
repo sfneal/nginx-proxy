@@ -10,9 +10,10 @@ RUN apk update && apk add \
     python3
 
 # Install Python dependencies
-COPY ./requirements.txt /scripts/
+COPY ./requirements.txt ./requirements.txt
 RUN pip3 install --upgrade pip \
-    && pip3 install -r /scripts/requirements.txt
+    && pip3 install -r ./requirements.txt \
+    && rm ./requirements.txt
 
 # Copy TLS parameters from base
 COPY --from=base /etc/nginx/ /etc/nginx/
