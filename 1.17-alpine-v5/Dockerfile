@@ -16,9 +16,6 @@ RUN pip3 install --upgrade pip \
     && pip3 install -r ./requirements.txt \
     && rm ./requirements.txt
 
-# Copy TLS parameters from base
-COPY --from=base /etc/nginx/ /etc/nginx/
-
 # Copy nginx configuration files & delete default
 RUN rm /etc/nginx/conf.d/default.conf
 COPY ./nginx/ /etc/nginx/
