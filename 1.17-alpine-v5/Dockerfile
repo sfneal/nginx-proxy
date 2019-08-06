@@ -4,6 +4,7 @@ MAINTAINER Stephen Neal <stephen@stephenneal.net>
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
 ENV validation_domain=validation.example.com
+ENV cache_enabled=1
 
 # Update OS then install openssl, curl
 RUN apk update && apk add \

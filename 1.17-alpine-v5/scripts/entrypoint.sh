@@ -8,6 +8,16 @@ replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/nginx.conf \
     --placeholder '@VALIDATION_DOMAIN'
 
+# Check if cache is enabled and use corresponding template.conf
+if [[ ! ${cache_enabled} == 1 ]]; then
+    echo "Static asset cache DISABLED"
+    cp /scripts/template-nocache.conf /scripts/template.conf
+    rm /scripts/template-nocache.conf
+else
+    echo "Static asset cache ENABLED"
+fi
+
+
 # Enable nginx configurations for each site
 for d in ${domain}; do
     # Split the "domain:webserver" string
