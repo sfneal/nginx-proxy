@@ -23,7 +23,7 @@ RUN apk update && apk add \
 RUN pip3 install --upgrade pip \
     && pip3 install \
         replace_domain>=1.0.5 \
-        awsutils-s3>=0.3.12
+        awsutils-s3>=0.3.18
 
 # Copy TLS parameters from base
 COPY --from=base /etc/nginx/ /etc/nginx/
