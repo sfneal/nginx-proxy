@@ -56,6 +56,11 @@ for d in ${redirect_domain}; do
 	replace_domain --domain ${url_redirect[1]} \
 	    --conf-file /etc/nginx/conf.d/${url_redirect[0]}.conf \
 	    --placeholder @REDIRECT
+
+	# Replace @VALIDATION_DOMAIN placeholder in {domain}.conf with validation domain
+	replace_domain --domain ${validation_domain} \
+    --conf-file /etc/nginx/conf.d/${url_redirect[0]}.conf \
+    --placeholder @VALIDATION_DOMAIN
 done
 
 # Start Nginx service
