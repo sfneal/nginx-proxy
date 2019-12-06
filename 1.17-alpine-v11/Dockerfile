@@ -3,7 +3,6 @@ MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
-ENV redirect_domain=example.com:legacy.example.com
 ENV validation_domain=validation.example.com
 ENV cache_enabled=1
 

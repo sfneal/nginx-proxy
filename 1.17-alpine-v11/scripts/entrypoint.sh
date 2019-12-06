@@ -39,30 +39,6 @@ for d in ${domain}; do
     sh /scripts/actions/wait-for-file.sh ${domain}
 done
 
-# Enable nginx configurations for each redirect
-for d in ${redirect_domain}; do
-    # Split the "domain:redirect" string
-    url_redirect=(${d//:/ })
-
-    # Copy nginx config template
-	cp /scripts/template-redirect.conf /etc/nginx/conf.d/${url_redirect[0]}.conf
-
-	# Replace @DOMAIN placeholder in {domain}.conf with server name
-	replace_domain --domain ${url_redirect[0]} \
-	    --conf-file /etc/nginx/conf.d/${url_redirect[0]}.conf \
-	    --placeholder @DOMAIN
-
-	# Replace @REDIRECT with correct redirect url
-	replace_domain --domain ${url_redirect[1]} \
-	    --conf-file /etc/nginx/conf.d/${url_redirect[0]}.conf \
-	    --placeholder @REDIRECT
-
-	# Replace @VALIDATION_DOMAIN placeholder in {domain}.conf with validation domain
-	replace_domain --domain ${validation_domain} \
-    --conf-file /etc/nginx/conf.d/${url_redirect[0]}.conf \
-    --placeholder @VALIDATION_DOMAIN
-done
-
 # Start Nginx service
 nginx -t
 nginx -g "daemon off;"
