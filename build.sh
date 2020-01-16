@@ -12,3 +12,4 @@ docker build -t stephenneal/nginx-proxy:1.17-alpine-v7 "${DIR}"/1.17-alpine-v7/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v8 "${DIR}"/1.17-alpine-v8/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v9 "${DIR}"/1.17-alpine-v9/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v10 "${DIR}"/1.17-alpine-v10/
+docker build -t stephenneal/nginx-proxy:1.17-alpine-v11 "${DIR}"/1.17-alpine-v11/
