@@ -6,13 +6,15 @@ ENV domain=example.com:app
 ENV validation_domain=validation.example.com
 ENV cache_enabled=1
 
-# Update OS then install openssl, curl
+# Update OS then install bash & python
 RUN apk update && apk add \
     bash \
     python3
 
-# Install Python dependencies
+# Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt
+
+# Install Python dependencies
 RUN pip3 install --upgrade pip \
     && pip3 install -r ./requirements.txt \
     && rm ./requirements.txt
