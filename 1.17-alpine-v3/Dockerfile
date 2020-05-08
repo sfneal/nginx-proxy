@@ -1,3 +1,13 @@
+FROM alpine:latest as base
+
+# Copy pull-tls script
+COPY ./scripts/actions/pull-tls.sh /scripts/pull-tls.sh
+
+# Update OS and install curl then pull tls certs
+RUN apk update && apk add curl && sh /scripts/pull-tls.sh
+
+
+
 FROM nginx:1.17-alpine
 
 # Domain environment variable (domain:service)
