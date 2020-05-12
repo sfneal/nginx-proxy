@@ -41,6 +41,10 @@ for d in ${domain}; do
         --split ' ' \
         --unique --skip 'localhost'
 
+    # Make directory for live SSL certs
+    echo "## Creating SSL certificate for ${d}..."
+    mkdir -m 777 -p /etc/letsencrypt/live/${d}/
+
     # Download existing certs from AWS
     sh /scripts/actions/pull-certs.sh "${domain}"
 
