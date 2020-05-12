@@ -3,6 +3,12 @@
 # Test nginx service
 nginx -t
 
+# Configure AWS creds
+if [[ ${aws_s3} -gt 0 ]]
+then
+    sh /scripts/actions/aws-credentials.sh
+fi
+
 # Replace @VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/nginx.conf \
