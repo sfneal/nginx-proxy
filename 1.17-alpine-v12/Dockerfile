@@ -6,9 +6,22 @@ ENV domain=example.com:app
 ENV validation_domain=validation.example.com
 ENV cache_enabled=1
 
-# Update OS then install bash & python
+# Disable HTTPS
+ENV https_disabled=0
+
+# AWS S3 creditentials
+ENV aws_s3=0
+ENV aws_s3_upload=0
+ENV aws_s3_download=0
+ENV aws_s3_bucket=""
+ENV aws_access_key_id=""
+ENV aws_secret_access_key=""
+ENV aws_region_name=""
+
+# Update OS then install bash, openssl & python
 RUN apk update && apk add \
     bash \
+    openssl \
     python3
 
 # Copy python dependencies list

@@ -25,18 +25,24 @@ fi
 for d in ${domain}; do
     # Split the "domain:webserver" string
     url_server=(${d//:/ })
-
-    # Run enable-conf.sh
-    sh /scripts/actions/enable-servers.sh ${url_server[0]} ${url_server[1]}
-done
-
-# Wait for all SSL cert files to appear before starting Nginx server
-for d in ${domain}; do
-    # Split the "domain:webserver" string
-    url_server=(${d//:/ })
     domain=${url_server[0]}
+    webserver=${url_server[1]}
 
-    sh /scripts/actions/wait-for-file.sh ${domain}
+    # Write each domain name to a text file to be read by certbot container
+    text-dump append \
+        --file-path /etc/letsencrypt/domains.txt \
+        --data "${domain}" \
+        --split ' ' \
+        --unique --skip 'localhost'
+
+    # Download existing certs from AWS
+    sh /scripts/actions/pull-certs.sh "${domain}"
+
+    # Create configurations for each domain & webserver
+    sh /scripts/actions/enable-servers.sh "${domain}" "${webserver}"
+
+    # Create dummy if Letsencrypt cert is missing
+    sh /scripts/actions/certify.sh "${domain}"
 done
 
 # Start Nginx service
