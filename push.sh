@@ -16,3 +16,5 @@ docker push stephenneal/nginx-proxy:1.17-alpine-v9
 docker push stephenneal/nginx-proxy:1.17-alpine-v10
 docker push stephenneal/nginx-proxy:1.17-alpine-v11
 docker push stephenneal/nginx-proxy:1.17-alpine-v12
+docker push stephenneal/nginx-proxy:1.18-alpine-v1
+docker push stephenneal/nginx-proxy:1.19-alpine-v1
