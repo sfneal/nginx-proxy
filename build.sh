@@ -4,8 +4,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v1 "${DIR}"/1.17-alpine-v1/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v2 "${DIR}"/1.17-alpine-v2/
-docker build -t stephenneal/nginx-proxy:1.17-alpine-v3 "${DIR}"/1.17-alpine-v3/
-docker build -t stephenneal/nginx-proxy:1.17-alpine-v4 "${DIR}"/1.17-alpine-v4/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v5 "${DIR}"/1.17-alpine-v5/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v6 "${DIR}"/1.17-alpine-v6/
 docker build -t stephenneal/nginx-proxy:1.17-alpine-v7 "${DIR}"/1.17-alpine-v7/
