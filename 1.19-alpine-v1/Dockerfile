@@ -9,7 +9,8 @@ ENV cache_enabled=1
 # Update OS then install bash & python
 RUN apk update && apk add \
     bash \
-    python3
+    python3 \
+    py3-pip
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt
