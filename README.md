@@ -1,4 +1,4 @@
-# stephenneal/nginx-proxy
+# sfneal/nginx-proxy
 
 [![Build Status](https://travis-ci.com/sfneal/nginx-proxy.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/nginx-proxy)
 [![Total Downloads](https://img.shields.io/docker/pulls/stephenneal/nginx-proxy?style=flat-square)](https://hub.docker.com/r/stephenneal/nginx-proxy)
