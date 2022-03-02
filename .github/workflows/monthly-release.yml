@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-          uses: actions/checkout@v2
-          with:
-            ref: ${{ github.head_ref }}
-            token: ${{ secrets.PAT }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT }}
 
       - name: Get Current Date
         id: date
