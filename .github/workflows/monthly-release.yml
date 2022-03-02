@@ -2,9 +2,8 @@ name: Monthly Automated Release
 
 
 on:
-  push:
-#  schedule:
-#    - cron: '0 3 2 * *'
+  schedule:
+    - cron: '0 3 1 * *'
 
 jobs:
   release:
@@ -27,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: ${{ steps.date.outputs.date }}-test
-          release_name: ${{ steps.date.outputs.date }}-test
+          tag_name: ${{ steps.date.outputs.date }}
+          release_name: ${{ steps.date.outputs.date }}
           body: |
             - automated monthly build & dependencies upgrade
           draft: false
