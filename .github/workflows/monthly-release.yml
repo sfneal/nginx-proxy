@@ -2,8 +2,9 @@ name: Monthly Automated Release
 
 
 on:
-  schedule:
-    - cron: '0 3 2 * *'
+  push:
+#  schedule:
+#    - cron: '0 3 2 * *'
 
 jobs:
   release:
@@ -11,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+          uses: actions/checkout@v2
+          with:
+            token: ${{ secrets.PAT }}
 
       - name: Get Current Date
         id: date
@@ -21,10 +24,10 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: ${{ steps.date.outputs.date }}
-          release_name: ${{ steps.date.outputs.date }}
+          tag_name: ${{ steps.date.outputs.date }}-test
+          release_name: ${{ steps.date.outputs.date }}-test
           body: |
             - automated monthly build & dependencies upgrade
           draft: false
