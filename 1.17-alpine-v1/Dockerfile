@@ -19,5 +19,8 @@ COPY ./nginx/ /etc/nginx/
 # Copy scripts
 COPY ./scripts/ /scripts/
 
+# Use the USER instruction to switch to the new user
+USER myuser
+
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]

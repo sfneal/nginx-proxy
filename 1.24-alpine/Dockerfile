@@ -1,6 +1,9 @@
 FROM nginx:1.24-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
+# Create a new group
+RUN groupadd -r users && useradd -r -g users nginx
+
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
 ENV validation_domain=validation.example.com
@@ -26,6 +29,9 @@ COPY ./nginx/ /etc/nginx/
 
 # Copy scripts
 COPY ./scripts/ /scripts/
+
+# Use the USER instruction to switch to the new user
+USER myuser
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
