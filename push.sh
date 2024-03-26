@@ -38,4 +38,6 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-proxy:1.23-alpine-v1-http
     docker push stephenneal/nginx-proxy:1.24-alpine
     docker push stephenneal/nginx-proxy:1.24-alpine-http
+    docker push stephenneal/nginx-proxy:1.25-alpine
+    docker push stephenneal/nginx-proxy:1.25-alpine-http
 fi
