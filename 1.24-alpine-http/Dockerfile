@@ -1,4 +1,4 @@
-FROM nginx:1.17-alpine
+FROM nginx:1.24-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Create a group and user
@@ -6,14 +6,14 @@ RUN addgroup -S nginxusers && adduser -S nginxuser -G nginxusers
 
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
-ENV redirect_domain=example.com:legacy.example.com
 ENV validation_domain=validation.example.com
 ENV cache_enabled=1
 
 # Update OS then install bash & python
 RUN apk update && apk add \
     bash \
-    python3
+    python3 \
+    py3-pip
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt

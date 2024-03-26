@@ -1,6 +1,9 @@
 FROM nginx:1.21-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
+# Create a group and user
+RUN addgroup -S nginxusers && adduser -S nginxuser -G nginxusers
+
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
 ENV validation_domain=validation.example.com
@@ -26,6 +29,9 @@ COPY ./nginx/ /etc/nginx/
 
 # Copy scripts
 COPY ./scripts/ /scripts/
+
+# Tell docker that all future commands should run as the nginxusers nginxuser
+USER nginxuser
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
