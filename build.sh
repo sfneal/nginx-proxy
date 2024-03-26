@@ -34,4 +34,6 @@ if [ "$TAG" != null ]
     docker build -t stephenneal/nginx-proxy:1.22-alpine-v1-http "${DIR}"/1.22-alpine-v1-http/
     docker build -t stephenneal/nginx-proxy:1.23-alpine-v1 "${DIR}"/1.23-alpine-v1/
     docker build -t stephenneal/nginx-proxy:1.23-alpine-v1-http "${DIR}"/1.23-alpine-v1-http/
+    docker build -t stephenneal/nginx-proxy:1.24-alpine "${DIR}"/1.24-alpine/
+    docker build -t stephenneal/nginx-proxy:1.24-alpine-http "${DIR}"/1.24-alpine-http/
 fi
