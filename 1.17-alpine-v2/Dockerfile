@@ -19,8 +19,5 @@ COPY ./nginx/ /etc/nginx/
 # Copy scripts
 COPY ./scripts/ /scripts/
 
-# Tell docker that all future commands should run as the nginxusers nginxuser
-USER nginxuser
-
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
