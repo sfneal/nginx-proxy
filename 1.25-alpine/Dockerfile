@@ -16,8 +16,9 @@ RUN apk update && apk add \
 COPY requirements.txt ./requirements.txt
 
 # Install Python dependencies
-RUN pip3 install --upgrade pip \
-    && pip3 install -r ./requirements.txt \
+RUN python3 -m venv .venv \
+    && source .venv/bin/activate \
+    && python3 -m pip install -r ./requirements.txt \
     && rm ./requirements.txt
 
 # Copy nginx configuration files & delete default
