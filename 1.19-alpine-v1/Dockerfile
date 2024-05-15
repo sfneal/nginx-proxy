@@ -10,7 +10,8 @@ ENV cache_enabled=1
 RUN apk update && apk add \
     bash \
     python3 \
-    py3-pip
+    py3-pip \
+    py3-pep517
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt
