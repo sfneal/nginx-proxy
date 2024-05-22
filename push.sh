@@ -39,15 +39,15 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-proxy:1.17-alpine-v10
     docker push stephenneal/nginx-proxy:1.17-alpine-v11
     docker push stephenneal/nginx-proxy:1.17-alpine-v12
-    docker push stephenneal/nginx-proxy:1.18-alpine-v1
-    docker push stephenneal/nginx-proxy:1.19-alpine-v1
-    docker push stephenneal/nginx-proxy:1.20-alpine-v1
-    docker push stephenneal/nginx-proxy:1.21-alpine-v1
-    docker push stephenneal/nginx-proxy:1.21-alpine-v1-http
-    docker push stephenneal/nginx-proxy:1.22-alpine-v1
-    docker push stephenneal/nginx-proxy:1.22-alpine-v1-http
-    docker push stephenneal/nginx-proxy:1.23-alpine-v1
-    docker push stephenneal/nginx-proxy:1.23-alpine-v1-http
+    docker push stephenneal/nginx-proxy:1.18-alpine
+    docker push stephenneal/nginx-proxy:1.19-alpine
+    docker push stephenneal/nginx-proxy:1.20-alpine
+    docker push stephenneal/nginx-proxy:1.21-alpine
+    docker push stephenneal/nginx-proxy:1.21-alpine-http
+    docker push stephenneal/nginx-proxy:1.22-alpine
+    docker push stephenneal/nginx-proxy:1.22-alpine-http
+    docker push stephenneal/nginx-proxy:1.23-alpine
+    docker push stephenneal/nginx-proxy:1.23-alpine-http
     docker push stephenneal/nginx-proxy:1.24-alpine
     docker push stephenneal/nginx-proxy:1.24-alpine-http
     docker push stephenneal/nginx-proxy:1.25-alpine
