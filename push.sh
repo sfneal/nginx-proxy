@@ -11,7 +11,19 @@ if [ "$TAG" != null ]
   # Only build & push one image
   then
     sh "${DIR}"/build.sh "${TAG}"
-    docker push stephenneal/nginx-proxy:"${TAG}"
+
+    FILE="${DIR}"/"${TAG}"/_docker-tags.txt
+
+    # Check if image has multiple tags (indicated by file existence)
+    if [ -f "${FILE}" ]; then
+      echo "${TAG} directory has multiple Docker tags"
+
+      while IFS= read -r line; do
+        echo docker push stephenneal/nginx-proxy:"${line}"
+      done < "${DIR}"/"${TAG}"/_docker-tags.txt
+    else
+      echo docker push stephenneal/nginx-proxy:"${TAG}"
+    fi
 
   # Build & push all images
   else
@@ -27,15 +39,15 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-proxy:1.17-alpine-v10
     docker push stephenneal/nginx-proxy:1.17-alpine-v11
     docker push stephenneal/nginx-proxy:1.17-alpine-v12
-    docker push stephenneal/nginx-proxy:1.18-alpine-v1
-    docker push stephenneal/nginx-proxy:1.19-alpine-v1
-    docker push stephenneal/nginx-proxy:1.20-alpine-v1
-    docker push stephenneal/nginx-proxy:1.21-alpine-v1
-    docker push stephenneal/nginx-proxy:1.21-alpine-v1-http
-    docker push stephenneal/nginx-proxy:1.22-alpine-v1
-    docker push stephenneal/nginx-proxy:1.22-alpine-v1-http
-    docker push stephenneal/nginx-proxy:1.23-alpine-v1
-    docker push stephenneal/nginx-proxy:1.23-alpine-v1-http
+    docker push stephenneal/nginx-proxy:1.18-alpine
+    docker push stephenneal/nginx-proxy:1.19-alpine
+    docker push stephenneal/nginx-proxy:1.20-alpine
+    docker push stephenneal/nginx-proxy:1.21-alpine
+    docker push stephenneal/nginx-proxy:1.21-alpine-http
+    docker push stephenneal/nginx-proxy:1.22-alpine
+    docker push stephenneal/nginx-proxy:1.22-alpine-http
+    docker push stephenneal/nginx-proxy:1.23-alpine
+    docker push stephenneal/nginx-proxy:1.23-alpine-http
     docker push stephenneal/nginx-proxy:1.24-alpine
     docker push stephenneal/nginx-proxy:1.24-alpine-http
     docker push stephenneal/nginx-proxy:1.25-alpine
