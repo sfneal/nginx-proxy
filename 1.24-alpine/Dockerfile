@@ -11,7 +11,8 @@ RUN apk update && apk add \
     bash \
     python3 \
     py3-pip \
-    py3-packaging
+    py3-packaging \
+    py3-six
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt
