@@ -1,5 +1,5 @@
 appdirs==1.4.4
-CacheControl==0.12.10
+CacheControl==0.14.0
 certifi==2024.2.2
 charset-normalizer==2.0.7
 colorama==0.4.4
