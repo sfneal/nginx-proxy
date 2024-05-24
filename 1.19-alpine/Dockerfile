@@ -11,6 +11,8 @@ RUN apk update && apk add \
     bash \
     python3 \
     py3-pip \
+    py3-distlib \
+    py3-packaging \
     py3-pep517 \
     py3-six
 
