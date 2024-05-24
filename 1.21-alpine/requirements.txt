@@ -10,7 +10,7 @@ html5lib==1.1
 idna==3.3
 lockfile==0.12.2
 looptools==1.2.4
-msgpack==1.0.2
+msgpack==1.0.8
 ordered-set==4.0.2
 packaging==20.9
 pep517==0.12.0
