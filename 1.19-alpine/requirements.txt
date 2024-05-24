@@ -12,7 +12,7 @@ looptools==1.2.4
 msgpack==1.0.8
 ordered-set==4.1.0
 packaging==20.9
-pep517==0.9.1
+pep517==0.13.1
 progress==1.6
 pyparsing==3.1.2
 pytoml==0.1.21
