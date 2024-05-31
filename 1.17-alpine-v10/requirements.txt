@@ -1,2 +1,2 @@
 looptools==1.2.4
-replace_domain==1.0.5
+replace_domain==1.1.0
