@@ -1,0 +1,4 @@
+looptools==1.2.4
+packaging>=23.2
+pyparsing==3.1.2
+replace_domain==1.1.0

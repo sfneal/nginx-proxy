@@ -37,6 +37,8 @@ jobs:
                     1.25-alpine-http,
                     1.26-alpine,
                     1.26-alpine-http,
+                    1.27-alpine,
+                    1.27-alpine-http,
                 ]
 
         name: TAG-${{ matrix.tag }}
