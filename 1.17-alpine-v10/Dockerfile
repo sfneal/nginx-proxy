@@ -1,5 +1,5 @@
 FROM nginx:1.17-alpine
-MAINTAINER Stephen Neal <stephen@stephenneal.net>
+LABEL org.opencontainers.image.authors="stephen@stephenneal.net"
 
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
