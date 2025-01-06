@@ -5,13 +5,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Optional TAG argument (if set, only the specified image will be built)
 TAG=${1:-null}
 
+# Optional PLATFORM argument (if none provided, both will be built)
+PLATFORM=${2:-"linux/amd64,linux/arm64"}
+
 # Check if the TAG variable is set
 if [ "$TAG" != null ]
 
   # Only build & push one image
   then
-    sh "${DIR}"/build.sh "${TAG}"
-
     FILE="${DIR}"/"${TAG}"/_docker-tags.txt
 
     # Check if image has multiple tags (indicated by file existence)
@@ -19,10 +20,18 @@ if [ "$TAG" != null ]
       echo "${TAG} directory has multiple Docker tags"
 
       while IFS= read -r line; do
-        docker push stephenneal/nginx-proxy:"${line}"
+        docker buildx build \
+			--push \
+			-t stephenneal/nginx-proxy:"${line}" \
+			--platform "${PLATFORM}" \
+			"${DIR}"/"${TAG}"/
       done < "${DIR}"/"${TAG}"/_docker-tags.txt
     else
-      docker push stephenneal/nginx-proxy:"${TAG}"
+      docker buildx build \
+			--push \
+			-t stephenneal/nginx-proxy:"${TAG}" \
+			--platform "${PLATFORM}" \
+			"${DIR}"/"${TAG}"/
     fi
 
   # Build & push all images
