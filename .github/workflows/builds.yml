@@ -10,7 +10,7 @@ jobs:
             matrix:
                 platform: [
                     "linux/amd64",
-                    "linux/arm64"
+#                    "linux/arm64"
                 ]
                 tag: [
                     1.17-alpine-v1,
