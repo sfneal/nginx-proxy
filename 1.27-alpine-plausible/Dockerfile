@@ -5,6 +5,7 @@ LABEL org.opencontainers.image.authors="stephen@stephenneal.net"
 ENV domain=example.com:app
 ENV validation_domain=validation.example.com
 ENV cache_enabled=1
+ENV plausible_script=script.js
 
 # Update OS then install bash & python
 RUN apk update && apk add \

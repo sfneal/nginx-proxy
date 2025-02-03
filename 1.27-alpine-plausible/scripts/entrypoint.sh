@@ -27,7 +27,7 @@ for d in ${domain}; do
     url_server=(${d//:/ })
 
     # Run enable-conf.sh
-    sh /scripts/actions/enable-servers.sh ${url_server[0]} ${url_server[1]}
+    sh /scripts/actions/enable-servers.sh ${url_server[0]} ${url_server[1]} ${plausible_script}
 done
 
 # Wait for all SSL cert files to appear before starting Nginx server

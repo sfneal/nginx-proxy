@@ -2,6 +2,7 @@
 
 domain_current=${1}
 server_current=${2}
+plausible_path=${3}
 
 
 echo "## Enabling nginx .conf for ${domain_current}..."
@@ -27,5 +28,11 @@ replace_domain --domain ${server_current} \
     --conf-file /etc/nginx/conf.d/${domain_current}.conf \
     --placeholder @WEBSERVER
 
+# Replace @PLAUSIBLESCRIPT placeholder in {domain}.conf with script name
+replace_domain --domain ${plausible_path} \
+    --conf-file /etc/nginx/conf.d/${domain_current}.conf \
+    --placeholder @PLAUSIBLESCRIPT
+
+echo "Plausible Script: ${plausible_script}"
 echo "Domain ${domain_current} directs traffic to the '${server_current}' server"
 echo ""
