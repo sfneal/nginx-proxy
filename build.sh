@@ -64,5 +64,6 @@ if [ "$TAG" != null ]
     docker build -t stephenneal/nginx-proxy:1.26-alpine-http "${DIR}"/1.26-alpine-http/
     docker build -t stephenneal/nginx-proxy:1.27-alpine "${DIR}"/1.27-alpine/
     docker build -t stephenneal/nginx-proxy:1.27-alpine-http "${DIR}"/1.27-alpine-http/
+    docker build -t stephenneal/nginx-proxy:1.27-alpine-plausible "${DIR}"/1.27-alpine-plausible/
     docker build -t stephenneal/nginx-proxy:1.27-alpine-stripe "${DIR}"/1.27-alpine-stripe/
 fi
