@@ -1,4 +1,4 @@
 looptools==1.2.4
 packaging>=23.2
-pyparsing==3.2.1
+pyparsing==3.2.3
 replace_domain==1.1.0
