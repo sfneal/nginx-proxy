@@ -1,6 +1,6 @@
 looptools==1.2.4
 packaging>=21.3
-pyparsing==3.2.3
+pyparsing==3.2.5
 replace_domain==1.1.0
 retrying==1.4.2
 six>=1.16.0
