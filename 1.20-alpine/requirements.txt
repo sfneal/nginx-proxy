@@ -1,6 +1,6 @@
 appdirs==1.4.4
 CacheControl==0.14.3
-certifi==2025.8.3
+certifi==2025.10.5
 chardet==4.0.0
 colorama==0.4.6
 contextlib2==21.6.0
